@@ -1,7 +1,7 @@
 nsf:
   #  基本信息
   application:
-    name: bcwang-stock-viewer
+    name: stock-viewer
     version: 0.0.1
     desc: this is service description
     type: http
@@ -27,7 +27,7 @@ nsf:
 #配置中心配置（metaserver为config地址）
   config:
     enable: true          #启用Apollo
-    appId: bcwang-stock-viewer      #对应配置中心的app.id（必须配置）
+    appId: stock-viewer      #对应配置中心的app.id（必须配置）
     #env 和 meta两项在nsf-agent中均有配置，在用户侧暴露此两项是为metaServer地址改变的情况下方便测试
     env: dev
     server: http://nsf-config-service.qingzhou.shdq.com
