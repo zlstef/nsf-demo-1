@@ -14,7 +14,9 @@ RUN mkdir -p /opt/apm && cd /opt/apm && \
     wget "http://httpserver.qingzhou.shdq.com/download/napm-java-agent-v2.2.0-190129-6cc820e7.tar.gz" -O napm-java-agent.tar.gz && \
     tar zxvf napm-java-agent.tar.gz && \
     cd ./napm-java-agent/conf && \
-    echo "endpoint=http://apm-collector.qingzhou.shdq.com\ncustomHeader=stockCode" >> napm-agent.properties 
+    echo "endpoint=http://apm-collector.qingzhou.shdq.com\ncustomHeader=stockCode" >> napm-agent.properties && \
+    echo "productId=3-stock" >> napm-agent.properties && \
+    echo "service=stock-advisor" >> napm-agent.properties 
 
 CMD ["catalina.sh", "run"]
 
