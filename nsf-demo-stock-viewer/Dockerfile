@@ -7,7 +7,7 @@ RUN cd /usr/local/tomcat/webapps && \
     rm -rf ROOT 
     
 RUN mkdir -p /opt/nsf && cd /opt/nsf && \
-    wget "http://httpserver.qingzhou.shdq.com/download/nsf-agent-v2.4-190613.jar" -O nsf-agent.jar
+    wget "http://httpserver.qingzhou.shdq.com/download/nsf-agent.jar" -O nsf-agent.jar
 ADD nsf.yml /opt/nsf/nsf.yml
 
 RUN mkdir -p /opt/apm && cd /opt/apm && \
