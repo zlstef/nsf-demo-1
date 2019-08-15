@@ -4,7 +4,7 @@ nsf:
     name: stock-viewer
     version: 0.0.1
     desc: this is service description
-  type: http
+    type: http
 
   # agent配置
   server:
