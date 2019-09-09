@@ -1,42 +1,16 @@
 nsf:
-  #  基本信息
+  type: http
+  version: '2.0'
+  nsfServer: 'http://nsf-server.v190808.163skiff.com'
   application:
     name: stock-provider
     version: 0.0.1
-    desc: this is service description
-    type: http
-
-  # agent配置
-  server:
-    enable: true # 是否启用NSF Server控制中心, 默认关闭
-    address: grpc://172.172.32.178:8981
-
-  #  注册中心
-  registry:
-    enable: true # 是否启用eureka注册发现服务, 默认关闭
-    address: http://nsf-registry.qingzhou.shdq.com/eureka/
-
-  # 应用监控
-  metrics:
-    enable: true # 是否启用hystrix的metrics应用监控
-
-#配置中心配置（metaserver为config地址）
-  config:
-    enable: true          #启用Apollo
-    appId: stock-provider      #对应配置中心的app.id（必须配置）
-    #env 和 meta两项在nsf-agent中均有配置，在用户侧暴露此两项是为metaServer地址改变的情况下方便测试
-    env: dev
-    server: http://nsf-config-service.qingzhou.shdq.com
-    namespaces:
-      - name: application   #对应希望拉取的namespace
-        order: 2           #存在多个namespace时，生效的优先级，越小优先级越高
-        Public: true
-      - name: application
-  #服务鉴权配置
+    projectCode: wangbicheng
   authority:
-    #认证中心地址
-    server: http://platform-service-auth.qingzhou.shdq.com
-    #访问重试次数(仅403状态会重试，默认为 3 )
-    retry: 3
-    accessKey: e78925ca20224cf582fa9ec33492f1b0
-    secretKey: 301aae0fdf4b4c6c94297dde02050989
+    accessKey: 081a63b82cb84dd481e689dbecbcba35
+    secretKey: 0a2f237e2ab44c84b50435db6164bdd4
+  manager:
+    patterns: []
+  relations:
+    services: []
+    versions: []
