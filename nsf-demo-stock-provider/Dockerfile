@@ -16,6 +16,6 @@ RUN mkdir -p /opt/apm && cd /opt/apm && \
     cd ./napm-java-agent/conf && \
     echo "endpoint=http://http://apm-collector.v190808.163skiff.com" >> napm-agent.properties && \
     echo "productId=3-stock" >> napm-agent.properties && \
-    echo "service=stock-viewer" >> napm-agent.properties
+    echo "service=stock-provider" >> napm-agent.properties
 
 CMD ["catalina.sh", "run"]
