@@ -7,7 +7,7 @@ RUN cd /usr/local/tomcat/webapps && \
     rm -rf ROOT 
     
 RUN mkdir -p /opt/nsf && cd /opt/nsf && \
-    wget "http://console.v190808.163skiff.com/download/nsf-agent_nsf-agent-v2.5.4-76fae211-20190910-174710.jar" -O nsf-agent.jar
+    wget "http://console.v190808.163skiff.com/download/nsf-agent-v2.5.4-76fae211-20190910-174710.jar" -O nsf-agent.jar
 ADD nsf.yml /opt/nsf/nsf.yml
 
 RUN mkdir -p /opt/apm && cd /opt/apm && \
@@ -15,7 +15,7 @@ RUN mkdir -p /opt/apm && cd /opt/apm && \
     tar zxvf napm-java-agent.tar.gz && \
     cd ./napm-java-agent/conf && \
     echo "endpoint=http://http://apm-collector.v190808.163skiff.com" >> napm-agent.properties && \
-    echo "productId=3-stock" >> napm-agent.properties && \
+    echo "productId=122-stock" >> napm-agent.properties && \
     echo "service=stock-viewer" >> napm-agent.properties
 
 CMD ["catalina.sh", "run"]
