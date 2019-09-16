@@ -34,13 +34,16 @@ public class AdvisorController {
 	@Value("${spring.application.name}")
 	String name;
 
+	@Value("${nsf.application.version}")
+	String version;
+
 	@GetMapping("/echo")
 	public String echo(HttpServletRequest request) {
 		
 		String host = request.getServerName();
 		int port = request.getServerPort();
 		
-		return "echo from " + name + "[" + host + ":" + port + "]" + System.lineSeparator();
+		return "echo from " + name + " " + version +"[" + host + ":" + port + "]" + System.lineSeparator();
 	}
 	
 	@GetMapping("/health")

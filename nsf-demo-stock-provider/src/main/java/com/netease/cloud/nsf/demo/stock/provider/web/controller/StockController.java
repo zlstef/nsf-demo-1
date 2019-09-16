@@ -50,6 +50,9 @@ public class StockController {
 	@Value("${spring.application.name}")
 	String name;
 
+	@Value("${nsf.application.version}")
+	String version;
+
 	@GetMapping("/hi")
 	public String greeting(HttpServletRequest request) {
 
@@ -65,7 +68,7 @@ public class StockController {
 		String host = request.getServerName();
 		int port = request.getServerPort();
 
-		return "echo from " + name + "[" + host + ":" + port + "]" + System.lineSeparator();
+		return "echo from " + name + " " + version +"[" + host + ":" + port + "]" + System.lineSeparator();
 	}
 
 	@GetMapping("/health")
