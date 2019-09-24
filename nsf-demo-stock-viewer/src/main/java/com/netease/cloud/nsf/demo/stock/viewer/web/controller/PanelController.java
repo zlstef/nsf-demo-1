@@ -5,6 +5,9 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +35,14 @@ public class PanelController {
     private static Logger log = LoggerFactory.getLogger(PanelController.class);
 
     @Autowired
+    private MeterRegistry meterRegistry;
+
+    @Autowired
     IStockService stockService;
 
     @Autowired
     HttpLogManager httpLogManager;
-    
+
     @GetMapping(value = {"" , "/index"})
     public String indexPage(){
         return "index";
@@ -89,14 +95,14 @@ public class PanelController {
     public HttpResponse getHttpLog() {
     	return new HttpResponse(httpLogManager.logs());
     }
-    
+
     @GetMapping("/logs/clear")
     @ResponseBody
     public HttpResponse clearLogs() {
     	httpLogManager.clear();
     	return new HttpResponse("clear logs success");
     }
-    
+
     @GetMapping("/echo/advisor")
     @ResponseBody
     public HttpResponse echoAdvisor(HttpServletRequest request) {
@@ -104,21 +110,23 @@ public class PanelController {
     	httpLogManager.put(UUID.randomUUID().toString(), result);
     	return new HttpResponse(result);
     }
-    
+
     @GetMapping("/echo/provider")
     @ResponseBody
     public HttpResponse echoProvider(HttpServletRequest request) {
+        Counter counter = meterRegistry.counter("testCounter", "la", "va");
+        counter.increment();
     	String result = stockService.echoProvider();
     	httpLogManager.put(UUID.randomUUID().toString(), result);
     	return new HttpResponse(result);
     }
-    
+
     @GetMapping("/health")
     @ResponseBody
     public String health() {
     	return "I am good!";
     }
-    
+
     @RequestMapping("/deepInvoke")
     @ResponseBody
     public String deepInvoke(@RequestParam int times) {
