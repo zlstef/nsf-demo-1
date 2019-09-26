@@ -116,6 +116,7 @@ public class PanelController {
     public HttpResponse echoProvider(HttpServletRequest request) {
         Counter counter = meterRegistry.counter("testCounter", "la", "va");
         counter.increment();
+        log.info("micrometer count:{}", counter.count());
     	String result = stockService.echoProvider();
     	httpLogManager.put(UUID.randomUUID().toString(), result);
     	return new HttpResponse(result);
@@ -124,7 +125,7 @@ public class PanelController {
     @GetMapping("/health")
     @ResponseBody
     public String health() {
-    	return "I am good!";
+    	return "I am good wangbicheng!";
     }
 
     @RequestMapping("/deepInvoke")

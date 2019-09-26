@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.netease.cloud</groupId>
-		<artifactId>nsf-sample</artifactId>
+		<artifactId>nsf-demo</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<artifactId>nsf-demo-stock-provider</artifactId>
 
 	<dependencies>
@@ -15,11 +15,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>com.netease.cloud</groupId>-->
-			<!--<artifactId>nsf-agent</artifactId>-->
-			<!--<version>1.0-SNAPSHOT</version>-->
-		<!--</dependency>-->
 	</dependencies>
 
 	<build>
@@ -32,17 +27,11 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<!--
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<executable>true</executable>
 				</configuration>
 			</plugin>
 		</plugins>
