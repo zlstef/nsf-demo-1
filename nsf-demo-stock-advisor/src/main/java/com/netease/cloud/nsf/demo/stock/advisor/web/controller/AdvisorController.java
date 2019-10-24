@@ -48,7 +48,7 @@ public class AdvisorController {
 
 	@GetMapping("/echo/provider")
 	public String echoProvider(HttpServletRequest request) {
-		return advisorService.echoProvider();
+		return advisorService.echoProvider(request);
 	}
 
 	@GetMapping("/health")
