@@ -4,7 +4,7 @@ nsf:
   nsfServer: 'http://nsf-server.v190808.163skiff.com'
   application:
     name: stock-viewer
-    version: 0.0.2
+    version: 0.0.1
     projectCode: wangbicheng
 
   # 方法配置
