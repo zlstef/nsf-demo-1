@@ -16,6 +16,8 @@ import com.netease.cloud.nsf.demo.stock.advisor.web.service.IAdvisorService;
 import com.netease.cloud.nsf.demo.stock.advisor.web.util.CastKit;
 import com.netease.cloud.nsf.demo.stock.advisor.web.util.StringKit;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class AdvisorServiceImpl implements IAdvisorService{
 
@@ -37,6 +39,9 @@ public class AdvisorServiceImpl implements IAdvisorService{
 	
 	@Value("${stock_viewer_url}")
 	String stockViewerrUrl;
+
+	@Value("${nsf.application.version:0.0.1}")
+	String version;
 
 	private int retryCount = 0;
 
@@ -101,11 +106,15 @@ public class AdvisorServiceImpl implements IAdvisorService{
 	}
 
 	@Override
-	public String echoProvider() {
+	public String echoProvider(HttpServletRequest request) {
 
 		StringBuilder sBuilder = new StringBuilder();
 		String url = stockProviderUrl + "/echo";
 		sBuilder.append(restTemplate.getForObject(url, String.class));
-		return sBuilder.toString();
+
+		String host = request.getServerName();
+		int port = request.getServerPort();
+
+		return "echo from advisor " + version +"[" + host + ":" + port + "]" + "+" + sBuilder.toString();
 	}
 }
