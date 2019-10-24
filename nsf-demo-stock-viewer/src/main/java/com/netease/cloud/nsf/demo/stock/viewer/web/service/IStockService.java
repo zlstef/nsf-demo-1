@@ -16,6 +16,8 @@ public interface IStockService {
 	public String echoAdvisor();
 	
 	public String echoProvider();
+
+	public String echoProviderFromAdvisor();
 	
 	public String deepInvoke(int times);
 

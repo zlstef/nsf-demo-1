@@ -122,6 +122,14 @@ public class PanelController {
     	return new HttpResponse(result);
     }
 
+    @GetMapping("/echo/advisor/provider")
+    @ResponseBody
+    public HttpResponse echoProviderFromAdvisor(HttpServletRequest request) {
+        String result = stockService.echoProviderFromAdvisor();
+        httpLogManager.put(UUID.randomUUID().toString(), result);
+        return new HttpResponse(result);
+    }
+
     @GetMapping("/health")
     @ResponseBody
     public String health() {

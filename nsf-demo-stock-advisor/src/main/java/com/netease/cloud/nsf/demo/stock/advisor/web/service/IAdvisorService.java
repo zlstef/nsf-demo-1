@@ -11,4 +11,6 @@ public interface IAdvisorService {
 	public List<String> batchHi();
 	
 	public String deepInvoke(int times);
+
+	public String echoProvider();
 }

@@ -109,6 +109,18 @@ public class StockServiceImpl implements IStockService {
     }
 
 
+    @Override
+    public String echoProviderFromAdvisor() {
+
+        int times = 10;
+        StringBuilder sBuilder = new StringBuilder();
+        String url = stockAdvisorUrl + "/echo/provider";
+        while(times --> 0) {
+            sBuilder.append(restTemplate.getForObject(url + "?p=" + times, String.class));
+        }
+        return sBuilder.toString();
+    }
+
 	@Override
 	public String deepInvoke(int times) {
 		if(times --> 0) {

@@ -99,4 +99,16 @@ public class AdvisorServiceImpl implements IAdvisorService{
 		} 
 		return "finish";
 	}
+
+	@Override
+	public String echoProvider() {
+
+		int times = 10;
+		StringBuilder sBuilder = new StringBuilder();
+		String url = stockProviderUrl + "/echo";
+		while(times --> 0) {
+			sBuilder.append(restTemplate.getForObject(url + "?p=" + times, String.class));
+		}
+		return sBuilder.toString();
+	}
 }

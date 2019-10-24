@@ -45,7 +45,12 @@ public class AdvisorController {
 		
 		return "echo from " + name + " " + version +"[" + host + ":" + port + "]" + System.lineSeparator();
 	}
-	
+
+	@GetMapping("/echo/provider")
+	public String echoProvider(HttpServletRequest request) {
+		return advisorService.echoProvider();
+	}
+
 	@GetMapping("/health")
 	@ResponseBody
 	public String health() {
