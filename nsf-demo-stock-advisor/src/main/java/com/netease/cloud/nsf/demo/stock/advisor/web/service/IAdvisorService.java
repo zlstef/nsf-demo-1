@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.netease.cloud.nsf.demo.stock.advisor.web.entity.Stock;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface IAdvisorService {
 	public List<Stock> getHotStocks() throws Exception;
 	
@@ -12,5 +14,5 @@ public interface IAdvisorService {
 	
 	public String deepInvoke(int times);
 
-	public String echoProvider();
+	public String echoProvider(HttpServletRequest request);
 }
