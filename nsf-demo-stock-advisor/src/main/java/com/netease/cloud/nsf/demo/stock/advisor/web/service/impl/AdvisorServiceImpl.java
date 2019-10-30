@@ -50,8 +50,8 @@ public class AdvisorServiceImpl implements IAdvisorService{
 
 		log.info("getHotStocks is invoked with retry count = " + retryCount );
 
-		Thread.sleep(1000);
 		if(retryCount ++ % 5 != 0){
+			Thread.sleep(1000);
 			throw new Exception();
 		}
 
