@@ -124,6 +124,7 @@
     <div class="form-group">
         <button id="echo_advisor" type="button" class="btn btn-info btn-sm">echo advisor</button>
         <button id="echo_provider" type="button" class="btn btn-info btn-sm">echo provider</button>
+        <button id="echo_advisor_provider" type="button" class="btn btn-info btn-sm">echo->advisor->provider</button>
     </div>
    
     <div class="form-group">
@@ -319,6 +320,20 @@
         });
     }
 
+    var echo_advisor_provider = function () {
+
+        var url = dubbo + "/echo/advisor/provider";
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (res) {
+                if (res) {
+                    refreshLog();
+                }
+            }
+        });
+    }
+
     var init = function () {
         getHotAdvice();
         getStockList(0);
@@ -356,6 +371,10 @@
 
         $('#echo_provider').click(function () {
             echoProvider();
+        })
+
+        $('#echo_advisor_provider').click(function () {
+            echo_advisor_provider();
         })
 
         $('#dubbo_switch').change(function() {
