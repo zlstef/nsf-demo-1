@@ -6,7 +6,7 @@ ADD ./nsf-demo-stock-provider/target/*.jar /opt/nsf/
 #add nsf agent jar and config file
 RUN mkdir -p /opt/nsf && cd /opt/nsf && \
     wget "http://console-cust56.netease.com/download/nsf-agent-v2.6.5-0e747145-20200320-122055.jar" -O nsf-agent.jar
-ADD nsf.yml /opt/nsf/nsf.yml
+ADD ./nsf-demo-stock-provider/nsf.yml /opt/nsf/nsf.yml
 
 #add apm agent jar and config file
 RUN mkdir -p /opt/apm && cd /opt/apm && \
@@ -18,7 +18,7 @@ RUN mkdir -p /opt/apm && cd /opt/apm && \
     echo "service=stock-provider" >> napm-agent.properties
 
 #add run command
-ADD run.sh  /opt/nsf/
+ADD ./nsf-demo-stock-provider/run.sh  /opt/nsf/
 RUN chmod a+x /opt/nsf/run.sh
 
 CMD ["/opt/nsf/run.sh"]
