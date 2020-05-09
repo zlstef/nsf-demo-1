@@ -40,7 +40,7 @@ public class AdvisorServiceImpl implements IAdvisorService{
 	@Value("${stock_viewer_url}")
 	String stockViewerrUrl;
 
-	@Value("${nsf.application.version:0.0.1}")
+	@Value("${nsf.application.version:0.0.2}")
 	String version;
 
 	private int retryCount = 0;
