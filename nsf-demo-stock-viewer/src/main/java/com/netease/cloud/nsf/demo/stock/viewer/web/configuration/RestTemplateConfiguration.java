@@ -18,10 +18,10 @@ import com.netease.cloud.nsf.demo.stock.viewer.web.interceptor.TraceHttpIntercep
 @Configuration
 public class RestTemplateConfiguration {
 
-	@Bean
+	/*@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
-	}
+	}*/
 
 	@Autowired
 	TraceHttpInterceptor traceHttpInterceptor;
