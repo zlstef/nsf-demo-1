@@ -15,6 +15,11 @@ public class StockAdvisorApplication extends SpringBootServletInitializer{
 		SpringApplication.run(StockAdvisorApplication.class, args);
 	}
 
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(StockAdvisorApplication.class);

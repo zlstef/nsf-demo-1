@@ -23,11 +23,6 @@ public class AdvisorServiceImpl implements IAdvisorService{
 
 	private static Logger log = LoggerFactory.getLogger(AdvisorServiceImpl.class);
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
-
 	@Autowired
 	RestTemplate restTemplate;
 
