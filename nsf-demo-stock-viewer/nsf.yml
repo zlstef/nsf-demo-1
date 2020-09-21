@@ -3,8 +3,8 @@ nsf:
   version: '2.0'
   nsfServer: 'http://nsf-server-cust56.netease.com'
   application:
-    name: stock-viewer
-    version: 0.0.1
+    name: stock-viewer-zl
+    version: 20200921
     projectCode: wangbicheng
     envCode: prod
     zone: default
